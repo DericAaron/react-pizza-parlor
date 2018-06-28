@@ -23,13 +23,14 @@ class CheckoutPage extends Component {
         }
         axios.post('/api/order', order).then((response) => {
             console.log('response from server', response)
-            alert('Congrats! Your order was successful! w00t!😎')
+            alert('CONGRATS! Your order was successful! 😎')
         })
         .catch((error) => {
             console.log(error);
-            alert('DANGER! Call your local dev team!🛠')
+            alert('DANGER! Call your local dev team! 🛠')
         });
     }
+   
 
     render() {
         console.log('In CheckoutPage Component.');
