@@ -27,9 +27,12 @@ const customerReducer = (state = {}, action) => {
 } //end customerReducer
 
 //this will hold the array of selected pizzas
-const pizzaReducer = (state = {menu: {}, selected: []}, action) => {
+const pizzaReducer = (state = {menu: [], selected: []}, action) => {
     if(action.type === 'ADD_PIZZA'){
         return {...state, selected: [action.payload]}
+    }
+    else if(action.type === 'SET_MENU'){
+        return {...state, menu: [...action.payload]}
     }
     return state;
 }

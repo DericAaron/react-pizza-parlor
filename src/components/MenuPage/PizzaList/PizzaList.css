@@ -1,0 +1,10 @@
+.menuGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding-right: 10px;
+}
+
+.menuGrid img {
+    width: 100%;
+}
