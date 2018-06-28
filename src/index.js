@@ -27,6 +27,9 @@ const customerReducer = (state = {}, action) => {
 } //end customerReducer
 
 //this will hold the array of selected pizzas
+
+
+
 const pizzaReducer = (state = {menu: [], selected: []}, action) => {
     if(action.type === 'ADD_PIZZA'){
         return {...state, selected: [action.payload]}
@@ -38,6 +41,7 @@ const pizzaReducer = (state = {menu: [], selected: []}, action) => {
 }
 
 const totalReducer = (state = {order_total: 0, type: 'delivery'}, action) =>{
+
     if(action.type === 'ADD_TOTAL'){
         return {...state, order_total: state.order_total + action.payload.order_total};
     } 
