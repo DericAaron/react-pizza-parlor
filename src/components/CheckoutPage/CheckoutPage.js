@@ -13,6 +13,24 @@ const mapReduxToProps = (reduxStore) => ({
 });
 
 class CheckoutPage extends Component {
+
+    sendOrderToServer = () => {
+        const order = {
+            customer: this.props.reduxStore.customerReducer,
+            pizzas: this.props.reduxStore.pizzaReducer,
+            order_total: this.props.reduxStore.totalReducer,
+
+        }
+        axios.post('/api/order', order).then((response) => {
+            console.log('response from server', response)
+            alert('Congrats! Your order was successful! w00t!😎')
+        })
+        .catch((error) => {
+            console.log(error);
+            alert('DANGER! Call your local dev team!🛠')
+        });
+    }
+
     render() {
         console.log('In CheckoutPage Component.');
         return (
@@ -20,7 +38,7 @@ class CheckoutPage extends Component {
                 <Header />
                 <CheckoutBody />
                 <Total />
-                <Button />
+                <button onClick={this.sendOrderToServer}>Checkout</button>
             </div>
         )
     }
