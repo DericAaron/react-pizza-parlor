@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import MenuPage from '../MenuPage/MenuPage';
+import CheckoutPage from '../CheckoutPage/CheckoutPage'
 
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
         <Router>
           <div>
             {/* <Route exact path="/" component={MenuPage}/> */}
-            
+            <Route exact path="/checkout" component={CheckoutPage} />
           </div>
         </Router>
 

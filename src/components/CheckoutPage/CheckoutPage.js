@@ -38,7 +38,6 @@ class CheckoutPage extends Component {
             <div>
                 <Header />
                 <CheckoutBody />
-                <Total />
                 <button onClick={this.sendOrderToServer}>Checkout</button>
             </div>
         )

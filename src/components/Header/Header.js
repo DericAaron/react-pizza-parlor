@@ -16,3 +16,5 @@ class Header extends Component {
         );
     }
 }//end Header
+
+export default Header;
