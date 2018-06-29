@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './CheckoutBody.css';
 import { connect } from 'react-redux';
+// import CustomerPage from '../CustomerPage/CustomerPage';
 
 
 const mapReduxToProps = (reduxStore) => ({
