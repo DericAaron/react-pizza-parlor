@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './PizzaItem.css';
 import {connect} from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 const mapReduxToProps = (reduxStore) =>({
     reduxStore
@@ -59,8 +60,8 @@ class PizzaItem extends Component{
                 <h3>{this.props.pizza.name}</h3>
                 <p>{this.props.pizza.description}</p>
                 <p>${this.props.pizza.cost} USD</p>
-                {this.state.hidden && <button onClick={()=>this.toggleButton(this.props.pizza)}>Add</button>}
-                {!this.state.hidden && <button onClick={()=>this.toggleButton(this.props.pizza)}>Remove</button>}
+                {this.state.hidden && <Button  onClick={()=>this.toggleButton(this.props.pizza)}>Add</Button>}
+                {!this.state.hidden && <Button  onClick={()=>this.toggleButton(this.props.pizza)}>Remove</Button>}
             </div>
         )
     }
