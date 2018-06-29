@@ -21,10 +21,6 @@ class App extends Component {
           <h1 className="App-title">Prime Pizza</h1>
         </header>
         <br/>
-
-
-       
-
        
         <Router>
           <div>

@@ -32,11 +32,18 @@ const customerReducer = (state = {}, action) => {
 
 const pizzaReducer = (state = {menu: [], selected: []}, action) => {
     if(action.type === 'ADD_PIZZA'){
-        return {...state, selected: [action.payload]}
+        return {...state, selected: [...state.selected, action.payload]}
     }
+    else if (action.type === 'REMOVE_PIZZA') {
+
+        const pizzaToRemove = pizza => pizza._id !== action.payload;
+        return {...state, selected: state.selected.filter(pizzaToRemove) };
+    }
+
     else if(action.type === 'SET_MENU'){
         return {...state, menu: [...action.payload]}
     }
+    
     return state;
 }
 
