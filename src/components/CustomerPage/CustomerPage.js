@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import CustomerForm from './CustomerForm/CustomerForm';
 import { connect } from 'react-redux';
-import {HashRouter as Router, Link} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { Alert } from 'react-alert';
 
 const mapReduxStateToProps = (reduxStore) => ({
     reduxStore
 });
 
 class CustomerPage extends Component {
+
+    state = {toCheckout: false}
 
     sendCustomerToRedux = () => {
         const body = {name: this.state.name, 
@@ -24,18 +27,24 @@ class CustomerPage extends Component {
         
     }
 
+    handleOnClick = () => {
+        this.sendCustomerToRedux()
+        Alert('Thanks for your order! Ready for checkout?')
+        (this.setState({toCheckout: true}))
+    }
+
     render() {
+        if(this.state.toCheckout === true) {
+            return <Redirect to='/checkout'/>
+        }
         return (
             <div>
                 <h2>Step 2: Customer Information</h2>
                 <CustomerForm sendCustomerToRedux={this.sendCustomerToRedux}/>
                 {/* dispatch takes in an action */}
-                <Router>
-                <button onClick={() => this.sendCustomerToRedux}>
+                <button onClick={this.handleOnClick}>
                     Next
-                    <Link to="/checkout" />
                 </button>
-                </Router>
                 <br />
                 <br />
             </div>
