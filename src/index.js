@@ -32,21 +32,28 @@ const customerReducer = (state = {}, action) => {
 
 const pizzaReducer = (state = {menu: [], selected: []}, action) => {
     if(action.type === 'ADD_PIZZA'){
-        return {...state, selected: [action.payload]}
+        return {...state, selected: [...state.selected, action.payload]}
     }
+    else if (action.type === 'REMOVE_PIZZA') {
+
+        const pizzaToRemove = pizza => pizza._id !== action.payload;
+        return {...state, selected: state.selected.filter(pizzaToRemove) };
+    }
+
     else if(action.type === 'SET_MENU'){
         return {...state, menu: [...action.payload]}
     }
+
     return state;
 }
 
 const totalReducer = (state = {order_total: 0, type: 'delivery'}, action) =>{
 
     if(action.type === 'ADD_TOTAL'){
-        return {...state, order_total: state.order_total + action.payload.order_total};
+        return {...state, order_total: state.order_total + action.payload};
     } 
     else if (action.type === 'SUBTRACT_TOTAL'){
-        return {...state, order_total: state.order_total - action.payload.order_total};
+        return {...state, order_total: state.order_total - action.payload};
     }
     else if(action.type === 'SET_TYPE'){
         return {...state, type: action.payload.type}
