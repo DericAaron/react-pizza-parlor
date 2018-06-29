@@ -78,14 +78,14 @@ class CustomerPage extends Component {
                 <div>
                 <label className="radio">
                     <input onChange={this.handleChange} className="radio" type="radio"  
-                        value={this.state.customer.type === "Pickup"} name="type" />
+                        value="Pickup" name="type" />
                         Pickup
                     </label>
                     </div>
                       <div>
                 <label className="radio">
                     <input onChange={this.handleChange} className="radio" type="radio"  
-                        value={this.state.customer.type === "Delivery"} name="type" />
+                        value="Delivery" name="type" />
                        Delivery
                     </label>
                     </div>
