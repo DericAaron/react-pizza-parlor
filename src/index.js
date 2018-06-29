@@ -43,17 +43,17 @@ const pizzaReducer = (state = {menu: [], selected: []}, action) => {
     else if(action.type === 'SET_MENU'){
         return {...state, menu: [...action.payload]}
     }
-    
+
     return state;
 }
 
 const totalReducer = (state = {order_total: 0, type: 'delivery'}, action) =>{
 
     if(action.type === 'ADD_TOTAL'){
-        return {...state, order_total: state.order_total + action.payload.order_total};
+        return {...state, order_total: state.order_total + action.payload};
     } 
     else if (action.type === 'SUBTRACT_TOTAL'){
-        return {...state, order_total: state.order_total - action.payload.order_total};
+        return {...state, order_total: state.order_total - action.payload};
     }
     else if(action.type === 'SET_TYPE'){
         return {...state, type: action.payload.type}

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './PizzaItem.css';
 import {connect} from 'react-redux';
-// import { Z_DEFAULT_STRATEGY } from 'zlib';
 
 const mapReduxToProps = (reduxStore) =>({
     reduxStore
@@ -24,6 +23,9 @@ class PizzaItem extends Component{
             const action = {type: 'ADD_PIZZA', payload: pizza };
             this.props.dispatch(action);
 
+            const totalAction = {type: 'ADD_TOTAL', payload: this.props.pizza.cost};
+            this.props.dispatch(totalAction);
+
             
         }
 
@@ -32,6 +34,9 @@ class PizzaItem extends Component{
             console.log('removing pizza from redux');
             const action = {type: 'REMOVE_PIZZA', payload: pizza._id };
             this.props.dispatch(action);
+
+            const totalAction = {type: 'SUBTRACT_TOTAL', payload: this.props.pizza.cost};
+            this.props.dispatch(totalAction);
             
         }
         

@@ -10,6 +10,7 @@ class MenuPage extends Component{
         return(
             <div>
                 <h1>Step 1: Select Your Pizza</h1>
+                
                 <PizzaList />
                 
                 

@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import PizzaItem from '../PizzaItem/PizzaItem';
 import {connect} from 'react-redux';
-import {Route, Link} from 'react-router-dom';
 import axios from 'axios';
 
 import './PizzaList.css';
