@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import PizzaItem from '../PizzaItem/PizzaItem';
 import {connect} from 'react-redux';
-import {Route, Link} from 'react-router-dom';
 import axios from 'axios';
 
 import './PizzaList.css';
@@ -18,7 +17,7 @@ class PizzaList extends Component{
         
         axios.get('/api/pizza')
             .then( (response) => {
-                console.log('back from getPizza', response.data);
+                // console.log('back from getPizza', response.data);
                 const action = {type: 'SET_MENU', payload: response.data};
                 this.props.dispatch(action);
                 
@@ -36,7 +35,7 @@ class PizzaList extends Component{
     render(){
         return(
             <div className="menuGrid">
-                
+
                     {
                     this.props.reduxStore.pizzaReducer.menu.map( (pizza, i) => {
                         return <PizzaItem key={i} pizza={pizza}/>
