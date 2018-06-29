@@ -18,7 +18,7 @@ class Customer{
     }
 }
 
-const customerReducer = (state = {}, action) => {
+const customerReducer = (state = {name: 'bob',street_address: 'toy street', city: 'toyapolis',zip:'666'}, action) => {
     if(action.type === 'ADD_CUSTOMER'){
         return new Customer(action.payload.name, action.payload.street_address, action.payload.city, action.payload.zip);
     }

@@ -38,14 +38,23 @@ class CheckoutPage extends Component {
         console.log('In CheckoutPage Component.');
         return (
             <div>
-                <Header />
-                <div>{this.props.reduxStore.totalReducer.order_total}</div>
+                {/* <pre>{JSON.stringify(this.props.reduxStore.customerReducer)}</pre> */}
+                <div className="CustomerInfo">
+                    <p>{this.props.reduxStore.customerReducer.name}</p>
+                    <p>{this.props.reduxStore.customerReducer.street_address}</p>
+                    <p>{this.props.reduxStore.customerReducer.city}</p>
+                    <p>{this.props.reduxStore.customerReducer.zip}</p>
+                </div>
+                <div className="Delivery">
+                    <p>{this.props.reduxStore.totalReducer.type}</p>
+                </div>
                 <CheckoutBody />
               
                 <button onClick={this.sendOrderToServer}>
                     Checkout
                     <Link to="/" />
                 </button>
+                <h4>Order Total:{this.props.reduxStore.totalReducer.order_total}</h4>
             </div>
         )
     }
