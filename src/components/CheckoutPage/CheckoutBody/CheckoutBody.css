@@ -1,0 +1,32 @@
+table{
+    margin-left:5%;
+    background-color:rgb(240, 240, 240);
+    width:90%;
+    border: 0.5px solid darkgrey;
+}
+th{
+    padding:2%;
+    border-bottom: 0.5px solid darkgrey;
+    background-color:rgb(247, 247, 247);
+}
+td{
+    padding:1%;
+    
+}
+.CustomerInfo{
+    float:left;
+   width:30%;
+   height: 200px;
+   margin-left: 5%;
+   margin-bottom: 5%;
+    background-color: rgb(247, 247, 247);
+
+}
+.Delivery{
+    float:right;
+    width:30%;
+    height: 200px;
+    margin-right:5%;
+    margin-bottom: 5%;
+    background-color: rgb(247, 247, 247);
+}

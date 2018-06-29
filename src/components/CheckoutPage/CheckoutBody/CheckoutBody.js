@@ -12,13 +12,13 @@ class CheckoutBody extends Component {
 
         return (
             <div>
-                <div>Customer Info
+                <div className="CustomerInfo">Customer Info
                     {this.props.reduxStore.customerReducer.name}
                     {this.props.reduxStore.customerReducer.street_address}
                     {this.props.reduxStore.customerReducer.city}
                     {this.props.reduxStore.customerReducer.zip}
                 </div>
-                <div>For Delivery
+                <div className="Delivery">For Delivery
                 </div>
 
                 <table>
