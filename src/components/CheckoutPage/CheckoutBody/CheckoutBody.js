@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './CheckoutBody.css';
 import { connect } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 import TableInfo from '../TableInfo/TableInfo';
+
 
 
 const mapReduxToProps = (reduxStore) => ({

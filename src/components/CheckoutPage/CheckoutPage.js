@@ -1,11 +1,10 @@
-import React,{ Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import CheckoutBody from './CheckoutBody/CheckoutBody';
-
 
 
 const mapReduxToProps = (reduxStore) => ({
@@ -37,6 +36,7 @@ class CheckoutPage extends Component {
     render() {
         console.log('In CheckoutPage Component.');
         return (
+            
             <div>
                 {/* <pre>{JSON.stringify(this.props.reduxStore.customerReducer)}</pre> */}
                 <div className="CustomerInfo">
@@ -55,6 +55,7 @@ class CheckoutPage extends Component {
                     <Link to="/" />
                 </button>
                 <h4>Order Total:{this.props.reduxStore.totalReducer.order_total}</h4>
+
             </div>
         )
     }
