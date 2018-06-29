@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 import './CheckoutBody.css';
 import { connect } from 'react-redux';
-// import CustomerPage from '../CustomerPage/CustomerPage';
+
+import { Link } from 'react-router-dom';
+import TableInfo from '../TableInfo/TableInfo';
+
 
 
 const mapReduxToProps = (reduxStore) => ({
-    reduxStore
+    pizzas: reduxStore.pizzaReducer.selected
 }) 
 
 class CheckoutBody extends Component {
     render() {
-
+        
         return (
             <div>
-                <div>Customer Info
-                    {this.props.reduxStore.customerReducer.name}
-                    {this.props.reduxStore.customerReducer.street_address}
-                    {this.props.reduxStore.customerReducer.city}
-                    {this.props.reduxStore.customerReducer.zip}
-                </div>
-                <div>For Delivery
-                </div>
-
+            {/* <pre>{JSON.stringify(this.props.pizzas)}</pre>   */}
                 <table>
                     <thead>
                         <tr>
@@ -30,14 +25,13 @@ class CheckoutBody extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Name goes here</td>
-                            <td>Cost goes here</td>
-                        </tr>
+                            {this.props.pizzas.map((pizza, i) => 
+                            <tr><TableInfo pizza={pizza} key={i} /></tr>)}
                     </tbody>
                 </table>
-                <div>Total goes here</div>
             </div>
+
+           
         )
     }
 }
