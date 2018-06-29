@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './CheckoutBody.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import TableInfo from '../TableInfo/TableInfo';
 
 
 const mapReduxToProps = (reduxStore) => ({
-    reduxStore
+    pizzas: reduxStore.pizzaReducer
 }) 
 
 class CheckoutBody extends Component {
@@ -12,15 +14,6 @@ class CheckoutBody extends Component {
 
         return (
             <div>
-                <div className="CustomerInfo">Customer Info
-                    {this.props.reduxStore.customerReducer.name}
-                    {this.props.reduxStore.customerReducer.street_address}
-                    {this.props.reduxStore.customerReducer.city}
-                    {this.props.reduxStore.customerReducer.zip}
-                </div>
-                <div className="Delivery">For Delivery
-                </div>
-
                 <table>
                     <thead>
                         <tr>
@@ -30,13 +23,14 @@ class CheckoutBody extends Component {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Name goes here</td>
-                            <td>Cost goes here</td>
+                            {this.props.pizzas.map((pizza, i) => 
+                            <TableInfo pizza={pizza} key={i} />)}
                         </tr>
                     </tbody>
                 </table>
-                <div>Total goes here</div>
             </div>
+
+           
         )
     }
 }

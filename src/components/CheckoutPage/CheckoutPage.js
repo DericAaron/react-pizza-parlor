@@ -9,18 +9,20 @@ import CheckoutBody from './CheckoutBody/CheckoutBody';
 
 
 const mapReduxToProps = (reduxStore) => ({
- reduxStore
+    reduxStore
 });
 
 class CheckoutPage extends Component {
 
     sendOrderToServer = () => {
+        
         const order = {
             customer: this.props.reduxStore.customerReducer,
             pizzas: this.props.reduxStore.pizzaReducer,
             order_total: this.props.reduxStore.totalReducer,
 
         }
+        console.log('in sendOrderToServer', order)
         axios.post('/api/order', order).then((response) => {
             console.log('response from server', response)
             alert('CONGRATS! Your order was successful! 😎')
@@ -37,8 +39,13 @@ class CheckoutPage extends Component {
         return (
             <div>
                 <Header />
+                <div>{this.props.reduxStore.totalReducer.order_total}</div>
                 <CheckoutBody />
-                <button onClick={this.sendOrderToServer}>Checkout</button>
+              
+                <button onClick={this.sendOrderToServer}>
+                    Checkout
+                    <Link to="/" />
+                </button>
             </div>
         )
     }
